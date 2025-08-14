@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         uch *img;
 	int channels;
 	
-	fd = fopen("/dev/ws2812", O_WRONLY);
+	fd = open("/dev/ws2812", O_WRONLY);
 	if(fd<0)
 	{
 		fprintf(stderr, "Failed to open /dev/pwm_dma\n");
@@ -41,11 +41,11 @@ int main(int argc, char *argv[])
 	
 	for(line = 0; line < height; line++)
 	{
-		fwrite(fd, img, 25*4);
+		write(fd, img, 25*4);
 		img += rowbytes;
 		usleep(30000);
 	}
 	
-	fclose(fd);
+	close(fd);
 }
 
