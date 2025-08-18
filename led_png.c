@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	fd = open("/dev/ws2812", O_WRONLY);
 	if(fd<0)
 	{
-		fprintf(stderr, "Failed to open /dev/pwm_dma\n");
+		fprintf(stderr, "Failed to open /dev/ws2812\n");
 		exit(-1);
 	}
 
